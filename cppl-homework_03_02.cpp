@@ -6,6 +6,7 @@ class Smart_array {
 	int size = 0;					   //размер массива
 	int number_of_filled_items = 0;    //количество заполненных элементов
 	int i = 0;
+
 public:
 	Smart_array(int size) {
 		this->size = size;
@@ -13,24 +14,22 @@ public:
 		new_array = new int[size];
 	}
 
-	int add_element(int value) {
-		arr[i] = value;
-		std::cout << "arr[" << i << "] = " << arr[i] << std::endl;
-		i++;
-		number_of_filled_items++;
-		if (number_of_filled_items == size)
+	void add_element(int value) {
+		if (number_of_filled_items >= size)
 		{
 			throw std::runtime_error("Количество элементов больше количества элементов, на которую выделена память");
 		}
+
+		arr[i] = value;
+
+		std::cout << "arr[" << i << "] = " << arr[i] << std::endl;
+		i++;
+		number_of_filled_items++;
 	}
 
 	~Smart_array() {
-		delete arr;
-		delete new_array;
-	}
-
-	int get_element(int elem) {
-		return elem;
+		/*delete arr;
+		delete new_array;*/
 	}
 };
 
@@ -53,6 +52,7 @@ int main()
 		std::cout << ex.what() << std::endl;
 	}
 }
+
 
 
 
