@@ -21,8 +21,10 @@ public:
 		}
 
 		arr[i] = value;
-
 		std::cout << "arr[" << i << "] = " << arr[i] << std::endl;
+
+		new_array[i] = arr[i];
+		std::cout << "new_array[" << i << "] = " << new_array[i] << std::endl;
 		i++;
 		number_of_filled_items++;
 	}
